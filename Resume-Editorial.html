@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Karthik Rasamsetti — Resume (Editorial Classic)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #e8e4dc; -webkit-font-smoothing: antialiased; }
+  body { display: flex; flex-direction: column; align-items: center; padding: 32px 16px 64px; gap: 16px; font-family: 'Source Serif 4', Georgia, serif; }
+
+  .toolbar {
+    width: 794px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .toolbar-label { font-size: 11px; color: #888; letter-spacing: 0.06em; text-transform: uppercase; font-family: Georgia, serif; }
+  .print-btn {
+    background: #7A1F1F; color: #fff; border: none; padding: 6px 18px;
+    font-size: 12px; font-weight: 500; border-radius: 4px; cursor: pointer;
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+  .print-btn:hover { background: #5e1818; }
+
+  .page {
+    width: 794px;
+    min-height: 1123px;
+    background: #FBF9F4;
+    box-shadow: 0 1px 4px rgba(0,0,0,.06), 0 12px 36px rgba(0,0,0,.12);
+  }
+
+  @page { size: A4; margin: 0; }
+  @media print {
+    html, body { background: #FBF9F4 !important; padding: 0 !important; display: block !important; }
+    .toolbar { display: none !important; }
+    .page { box-shadow: none !important; width: 210mm !important; min-height: 297mm !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <span class="toolbar-label">B · Editorial Classic</span>
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+</div>
+<div id="root" class="page"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script>
+window.RESUME = {
+  name: "Rasamsetti Karthik Raja",
+  title: "QA Automation Engineer",
+  contact: {
+    email: "karthikrasamsetti@gmail.com",
+    linkedin: "linkedin.com/in/karthik-rasamsetti-29450319b",
+    linkedinUrl: "https://www.linkedin.com/in/karthik-rasamsetti-29450319b",
+  },
+  summary: "QA Automation Engineer with 3+ years designing and shipping scalable test automation for web and mobile. Specialist in UI, API, database, and performance testing — built Unified Test Automation Frameworks (UTAF) that cut regression cycles and lifted coverage across multiple products. Early adopter of AI-driven Quality Engineering using Agentic RAG, LangChain, and LangGraph.",
+  skills: [
+    { label: "Languages",       items: ["Java", "JavaScript", "Python"] },
+    { label: "Automation",      items: ["Selenium", "Playwright", "WebDriverIO", "Appium"] },
+    { label: "Frameworks",      items: ["TestNG", "Cucumber (BDD)", "Mocha", "Pytest"] },
+    { label: "Performance",     items: ["k6", "WebLOAD"] },
+    { label: "CI / CD",         items: ["Azure DevOps", "GitHub Actions", "GitLab CI", "CircleCI"] },
+    { label: "Database",        items: ["MySQL"] },
+    { label: "Version Control", items: ["Git"] },
+    { label: "Methodologies",   items: ["Agile", "SDLC", "STLC"] },
+    { label: "AI in QA",        items: ["Agentic RAG", "LangChain", "LangGraph", "Prompt Engineering"] },
+    { label: "Architecture",    items: ["UTAF (Unified Test Automation Framework)"] },
+  ],
+  experience: [
+    {
+      company: "OnTrac", role: "QA Automation Engineer", domain: "Logistics & Transportation", period: "2024 — Present",
+      bullets: [
+        { text: "Designed and executed performance testing strategy with k6, holding system stability through peak holiday traffic spikes (~3× normal load).", metric: "3× peak load" },
+        { text: "Migrated legacy WebLOAD load-testing scripts to k6, cutting execution time by ~40% and unlocking parallel cloud runs.", metric: "−40% exec time" },
+        { text: "Built end-to-end pytest framework covering UI flows + database validation across 4 service modules.", metric: "4 modules" },
+        { text: "Integrated automation pipelines into Azure DevOps for continuous testing on every PR — feedback within minutes, not hours.", metric: "PR-gated CI" },
+        { text: "Automated critical workflows previously run manually, reducing manual regression effort by an estimated 60%.", metric: "−60% manual" },
+      ],
+    },
+    {
+      company: "LeaseLock", role: "QA Automation Engineer", domain: "FinTech / Insurance", period: "2023 — 2024",
+      bullets: [
+        { text: "Designed and implemented UTAF (Unified Test Automation Framework) standardising UI, API, and DB testing across teams.", metric: "Framework owner" },
+        { text: "Built reusable, modular components covering end-to-end policy and underwriting workflows — adopted by 3 squads.", metric: "3 squads" },
+        { text: "Wired automation suites into CircleCI with automated email reporting on failures and nightly summaries.", metric: "Auto-reporting" },
+        { text: "Improved regression efficiency through framework reuse, lifting test coverage by ~50% with fewer flaky failures.", metric: "+50% coverage" },
+      ],
+    },
+    {
+      company: "Encore", role: "QA Automation Engineer", domain: "Event Management", period: "2022 — 2023",
+      bullets: [
+        { text: "Developed and maintained BDD automation scripts in Cucumber for event-management workflows (hotels, infrastructure, services).", metric: "BDD" },
+        { text: "Authored cross-browser test suites running on Chrome, Firefox, Safari, and Edge in parallel.", metric: "4 browsers" },
+        { text: "Collaborated in Agile ceremonies — sprint planning, stand-ups, retros — and partnered with devs on shift-left QA practices.", metric: "Agile" },
+      ],
+    },
+  ],
+  ai: [
+    "Prototyped Agentic RAG architectures for intelligent test-data generation and validation.",
+    "Built proofs-of-concept with LangChain for dynamic test-case generation from acceptance criteria.",
+    "Designed multi-step AI workflows in LangGraph for automation orchestration and triage.",
+    "Applied prompt engineering to accelerate script authoring and debugging by ~30%.",
+    "Investigated self-healing automation and AI-led failure analysis.",
+  ],
+  achievements: [
+    "Authored UTAF — the framework now standardising automation across multiple LeaseLock products.",
+    "Cut regression cycle time and lifted automation coverage through framework optimisation.",
+    "Made performance testing release-blocking before peak business windows.",
+    "Accelerated test execution via CI/CD parallelisation strategies.",
+  ],
+  education: {
+    school: "Ideal Institute of Technology",
+    location: "Vidyut Nagar, Kakinada",
+    degree: "B.Tech, Electronics & Communications Engineering",
+    period: "Jun 2018 — Jul 2022",
+    grade: "Grade: A",
+    extras: "Activities: Cricket · Coursework: Core Java",
+  },
+};
+</script>
+
+<script type="text/babel" data-presets="env,react">
+const R = window.RESUME;
+const accent = "#7A1F1F";
+const font   = "'Source Serif 4', 'Georgia', serif";
+
+const secTitle = {
+  fontFamily: font, fontStyle: "italic", fontWeight: 400,
+  fontSize: 15, color: accent, margin: 0, marginBottom: 10,
+  textAlign: "center", letterSpacing: "0.04em",
+};
+
+function TitleRule() {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 10, margin: "0 auto 12px", maxWidth: 260, justifyContent: "center" }}>
+      <div style={{ flex: 1, height: 1, background: "#1a1a1a" }} />
+      <div style={{ width: 4, height: 4, background: accent, borderRadius: "50%" }} />
+      <div style={{ flex: 1, height: 1, background: "#1a1a1a" }} />
+    </div>
+  );
+}
+
+function Resume() {
+  return (
+    <div style={{ fontFamily: font, background: "#FBF9F4", color: "#161210", padding: "68px 80px", fontSize: 11, lineHeight: 1.55, width: "100%", boxSizing: "border-box", WebkitFontSmoothing: "antialiased" }}>
+
+      <header style={{ textAlign: "center", marginBottom: 30 }}>
+        <div style={{ fontFamily: font, fontStyle: "italic", fontSize: 10.5, letterSpacing: "0.35em", textTransform: "uppercase", color: accent, marginBottom: 8 }}>
+          Curriculum Vitae
+        </div>
+        <h1 style={{ fontFamily: font, fontSize: 40, fontWeight: 600, margin: 0, letterSpacing: "-0.01em", lineHeight: 1.05 }}>{R.name}</h1>
+        <div style={{ fontFamily: font, fontStyle: "italic", fontSize: 14, color: "#444", marginTop: 6, marginBottom: 12 }}>{R.title}</div>
+        <div style={{ fontSize: 10, color: "#555", display: "flex", justifyContent: "center", gap: 16, flexWrap: "wrap" }}>
+          <span>{R.contact.email}</span>
+          <span style={{ color: accent }}>•</span>
+          <span>{R.contact.linkedin}</span>
+        </div>
+      </header>
+
+      <section style={{ marginBottom: 26, textAlign: "center", maxWidth: "60ch", marginLeft: "auto", marginRight: "auto" }}>
+        <p style={{ margin: 0, fontSize: 11.5, lineHeight: 1.7, fontStyle: "italic", color: "#2a2520" }}>
+          &ldquo;{R.summary}&rdquo;
+        </p>
+      </section>
+
+      <section style={{ marginBottom: 26 }}>
+        <h2 style={secTitle}>Experience</h2>
+        <TitleRule />
+        {R.experience.map((job, i) => (
+          <div key={i} style={{ marginBottom: i === R.experience.length - 1 ? 0 : 16 }}>
+            <div style={{ textAlign: "center", marginBottom: 5 }}>
+              <div style={{ fontFamily: font, fontSize: 15, fontWeight: 600 }}>{job.company}</div>
+              <div style={{ fontFamily: font, fontStyle: "italic", fontSize: 11, color: "#555", marginTop: 1 }}>
+                {job.role} &nbsp;·&nbsp; {job.domain} &nbsp;·&nbsp; {job.period}
+              </div>
+            </div>
+            <ul style={{ margin: 0, paddingLeft: 0, listStyle: "none" }}>
+              {job.bullets.map((b, j) => (
+                <li key={j} style={{ display: "grid", gridTemplateColumns: "1fr 90px", gap: 10, padding: "2.5px 0", fontSize: 10.5, lineHeight: 1.55, alignItems: "baseline" }}>
+                  <span style={{ display: "flex", gap: 9 }}>
+                    <span style={{ color: accent, flexShrink: 0 }}>§</span>
+                    <span>{b.text}</span>
+                  </span>
+                  <span style={{ fontFamily: font, fontStyle: "italic", fontSize: 9.5, color: accent, textAlign: "right" }}>{b.metric}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+
+      <section style={{ marginBottom: 26 }}>
+        <h2 style={secTitle}>Areas of Expertise</h2>
+        <TitleRule />
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", columnGap: 32, rowGap: 5 }}>
+          {R.skills.map((s, i) => (
+            <div key={i} style={{ fontSize: 10.5, lineHeight: 1.6 }}>
+              <span style={{ fontStyle: "italic", color: accent }}>{s.label}.</span>{" "}
+              <span>{s.items.join(", ")}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section style={{ marginBottom: 26 }}>
+        <h2 style={secTitle}>AI in Quality Engineering</h2>
+        <TitleRule />
+        <ul style={{ margin: 0, paddingLeft: 0, listStyle: "none", maxWidth: "68ch", marginLeft: "auto", marginRight: "auto" }}>
+          {R.ai.map((a, i) => (
+            <li key={i} style={{ display: "flex", gap: 9, padding: "2.5px 0", fontSize: 10.5 }}>
+              <span style={{ color: accent, flexShrink: 0 }}>§</span>
+              <span>{a}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+        <div>
+          <h2 style={secTitle}>Achievements</h2>
+          <TitleRule />
+          <ul style={{ margin: 0, paddingLeft: 0, listStyle: "none" }}>
+            {R.achievements.map((a, i) => (
+              <li key={i} style={{ display: "flex", gap: 9, padding: "2.5px 0", fontSize: 10.5 }}>
+                <span style={{ color: accent, flexShrink: 0 }}>§</span>
+                <span>{a}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 style={secTitle}>Education</h2>
+          <TitleRule />
+          <div style={{ textAlign: "center" }}>
+            <div style={{ fontFamily: font, fontSize: 13, fontWeight: 600 }}>{R.education.school}</div>
+            <div style={{ fontSize: 10, color: "#666", fontStyle: "italic", marginBottom: 4 }}>{R.education.location}</div>
+            <div style={{ fontSize: 11, marginBottom: 2 }}>{R.education.degree}</div>
+            <div style={{ fontSize: 10, color: "#666" }}>{R.education.period} · {R.education.grade}</div>
+            <div style={{ fontSize: 9.5, color: "#888", marginTop: 3, fontStyle: "italic" }}>{R.education.extras}</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Resume />);
+</script>
+</body>
+</html>
