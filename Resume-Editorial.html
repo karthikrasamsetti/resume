@@ -77,30 +77,37 @@ window.RESUME = {
   ],
   experience: [
     {
-      company: "OnTrac", role: "QA Automation Engineer", domain: "Logistics & Transportation", period: "2024 — Present",
-      bullets: [
-        { text: "Designed and executed performance testing strategy with k6, holding system stability through peak holiday traffic spikes (~3× normal load).", metric: "3× peak load" },
-        { text: "Migrated legacy WebLOAD load-testing scripts to k6, cutting execution time by ~40% and unlocking parallel cloud runs.", metric: "−40% exec time" },
-        { text: "Built end-to-end pytest framework covering UI flows + database validation across 4 service modules.", metric: "4 modules" },
-        { text: "Integrated automation pipelines into Azure DevOps for continuous testing on every PR — feedback within minutes, not hours.", metric: "PR-gated CI" },
-        { text: "Automated critical workflows previously run manually, reducing manual regression effort by an estimated 60%.", metric: "−60% manual" },
-      ],
-    },
-    {
-      company: "LeaseLock", role: "QA Automation Engineer", domain: "FinTech / Insurance", period: "2023 — 2024",
-      bullets: [
-        { text: "Designed and implemented UTAF (Unified Test Automation Framework) standardising UI, API, and DB testing across teams.", metric: "Framework owner" },
-        { text: "Built reusable, modular components covering end-to-end policy and underwriting workflows — adopted by 3 squads.", metric: "3 squads" },
-        { text: "Wired automation suites into CircleCI with automated email reporting on failures and nightly summaries.", metric: "Auto-reporting" },
-        { text: "Improved regression efficiency through framework reuse, lifting test coverage by ~50% with fewer flaky failures.", metric: "+50% coverage" },
-      ],
-    },
-    {
-      company: "Encore", role: "QA Automation Engineer", domain: "Event Management", period: "2022 — 2023",
-      bullets: [
-        { text: "Developed and maintained BDD automation scripts in Cucumber for event-management workflows (hotels, infrastructure, services).", metric: "BDD" },
-        { text: "Authored cross-browser test suites running on Chrome, Firefox, Safari, and Edge in parallel.", metric: "4 browsers" },
-        { text: "Collaborated in Agile ceremonies — sprint planning, stand-ups, retros — and partnered with devs on shift-left QA practices.", metric: "Agile" },
+      employer: "Feuji",
+      role: "QA Automation Engineer",
+      period: "2022 — Present",
+      projects: [
+        {
+          client: "OnTrac", domain: "Logistics & Transportation", period: "2024 — Present",
+          bullets: [
+            { text: "Designed and executed performance testing strategy with k6, holding system stability through peak holiday traffic spikes (~3× normal load).", metric: "3× peak load" },
+            { text: "Migrated legacy WebLOAD load-testing scripts to k6, cutting execution time by ~40% and unlocking parallel cloud runs.", metric: "−40% exec time" },
+            { text: "Built end-to-end pytest framework covering UI flows + database validation across 4 service modules.", metric: "4 modules" },
+            { text: "Integrated automation pipelines into Azure DevOps for continuous testing on every PR — feedback within minutes, not hours.", metric: "PR-gated CI" },
+            { text: "Automated critical workflows previously run manually, reducing manual regression effort by an estimated 60%.", metric: "−60% manual" },
+          ],
+        },
+        {
+          client: "LeaseLock", domain: "FinTech / Insurance", period: "2023 — 2024",
+          bullets: [
+            { text: "Designed and implemented UTAF (Unified Test Automation Framework) standardising UI, API, and DB testing across teams.", metric: "Framework owner" },
+            { text: "Built reusable, modular components covering end-to-end policy and underwriting workflows — adopted by 3 squads.", metric: "3 squads" },
+            { text: "Wired automation suites into CircleCI with automated email reporting on failures and nightly summaries.", metric: "Auto-reporting" },
+            { text: "Improved regression efficiency through framework reuse, lifting test coverage by ~50% with fewer flaky failures.", metric: "+50% coverage" },
+          ],
+        },
+        {
+          client: "Encore", domain: "Event Management", period: "2022 — 2023",
+          bullets: [
+            { text: "Developed and maintained BDD automation scripts in Cucumber for event-management workflows (hotels, infrastructure, services).", metric: "BDD" },
+            { text: "Authored cross-browser test suites running on Chrome, Firefox, Safari, and Edge in parallel.", metric: "4 browsers" },
+            { text: "Collaborated in Agile ceremonies — sprint planning, stand-ups, retros — and partnered with devs on shift-left QA practices.", metric: "Agile" },
+          ],
+        },
       ],
     },
   ],
@@ -177,23 +184,33 @@ function Resume() {
         <TitleRule />
         {R.experience.map((job, i) => (
           <div key={i} style={{ marginBottom: i === R.experience.length - 1 ? 0 : 16 }}>
-            <div style={{ textAlign: "center", marginBottom: 5 }}>
-              <div style={{ fontFamily: font, fontSize: 15, fontWeight: 600 }}>{job.company}</div>
-              <div style={{ fontFamily: font, fontStyle: "italic", fontSize: 11, color: "#555", marginTop: 1 }}>
-                {job.role} &nbsp;·&nbsp; {job.domain} &nbsp;·&nbsp; {job.period}
+            <div style={{ textAlign: "center", marginBottom: 10 }}>
+              <div style={{ fontFamily: font, fontSize: 16, fontWeight: 600 }}>{job.employer}</div>
+              <div style={{ fontFamily: font, fontStyle: "italic", fontSize: 11, color: "#555", marginTop: 2 }}>
+                {job.role} &nbsp;·&nbsp; {job.period}
               </div>
             </div>
-            <ul style={{ margin: 0, paddingLeft: 0, listStyle: "none" }}>
-              {job.bullets.map((b, j) => (
-                <li key={j} style={{ display: "grid", gridTemplateColumns: "1fr 90px", gap: 10, padding: "2.5px 0", fontSize: 10.5, lineHeight: 1.55, alignItems: "baseline" }}>
-                  <span style={{ display: "flex", gap: 9 }}>
-                    <span style={{ color: accent, flexShrink: 0 }}>§</span>
-                    <span>{b.text}</span>
-                  </span>
-                  <span style={{ fontFamily: font, fontStyle: "italic", fontSize: 9.5, color: accent, textAlign: "right" }}>{b.metric}</span>
-                </li>
-              ))}
-            </ul>
+            {job.projects.map((proj, j) => (
+              <div key={j} style={{ marginBottom: j === job.projects.length - 1 ? 0 : 14 }}>
+                <div style={{ textAlign: "center", marginBottom: 4 }}>
+                  <div style={{ fontFamily: font, fontSize: 13, fontWeight: 600, color: accent }}>{proj.client}</div>
+                  <div style={{ fontFamily: font, fontStyle: "italic", fontSize: 10.5, color: "#777", marginTop: 1 }}>
+                    {proj.domain} &nbsp;·&nbsp; {proj.period}
+                  </div>
+                </div>
+                <ul style={{ margin: 0, paddingLeft: 0, listStyle: "none" }}>
+                  {proj.bullets.map((b, k) => (
+                    <li key={k} style={{ display: "grid", gridTemplateColumns: "1fr 90px", gap: 10, padding: "2.5px 0", fontSize: 10.5, lineHeight: 1.55, alignItems: "baseline" }}>
+                      <span style={{ display: "flex", gap: 9 }}>
+                        <span style={{ color: accent, flexShrink: 0 }}>§</span>
+                        <span>{b.text}</span>
+                      </span>
+                      <span style={{ fontFamily: font, fontStyle: "italic", fontSize: 9.5, color: accent, textAlign: "right" }}>{b.metric}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         ))}
       </section>
